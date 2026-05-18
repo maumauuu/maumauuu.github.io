@@ -3,28 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site</title>
+    <title>Mon Site GitHub Pages</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- La barre latérale -->
+    <!-- Barre latérale (Sidebar) -->
     <div id="Sidebar">
-        <h1>Mon App</h1>
-        <p>Bienvenue dans la <span class="highlight">sidebar</span></p>
+        <h1>Mon Projet</h1>
+        <p>Bienvenue sur mon site hébergé avec <span class="highlight">GitHub Pages</span>.</p>
     </div>
 
-    <!-- Le contenu principal -->
+    <!-- Contenu principal -->
     <div id="Container">
-        <h2>Formulaire de test</h2>
-        <br>
-        <input type="text" placeholder="Entre ton texte ici...">
-        <br><br>
-<button onclick="alert('Le bouton fonctionne en JavaScript !')">Valider</button>        <br><br>
-        <label class="checkbox-container">
-            <input type="checkbox"> Accepter les conditions
-        </label>
+
+        <!-- Titre et Introduction -->
+        <h2>Bienvenue sur ma page de présentation</h2>
+        <p class="intro-text">
+            Voici une zone d'introduction pour présenter ton projet. Ce site utilise le design
+            adapté de ton fichier QSS d'origine avec ses couleurs caractéristiques.
+        </p>
+
+        <hr class="separator">
+
+        <!-- Zone Vidéo -->
+        <h3>Zone Vidéo</h3>
+        <div class="video-zone">
+            <!-- Exemple avec une vidéo YouTube, remplace l'URL par la tienne si besoin -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Lecteur vidéo" allowfullscreen></iframe>
+        </div>
+
+        <hr class="separator">
+
+        <!-- Zone Image avec Présentation -->
+        <h3>Zone Image & Présentation</h3>
+        <div class="image-presentation-zone">
+            <div class="text-side">
+                <h4>À propos de cette image</h4>
+                <p>Clique sur l'image de droite pour l'agrandir en plein écran grâce à un script JavaScript local.</p>
+            </div>
+            <div class="image-side">
+                <!-- Remplace l'URL par ton image si tu en as une locale (ex: assets/mon-image.jpg) -->
+                <img id="clickable-img" src="https://picsum.photos/800/500" alt="Image cliquable">
+                <p class="img-hint">💡 Clique sur l'image pour zoomer</p>
+            </div>
+        </div>
+
     </div>
+
+    <!-- Fenêtre Pop-up masquée par défaut pour l'image agrandie -->
+    <div id="image-overlay" class="overlay">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-content" id="img-fullscreen">
+    </div>
+
+    <!-- Script JavaScript pour l'agrandissement de l'image -->
+    <script>
+        const overlay = document.getElementById('image-overlay');
+        const clickedImg = document.getElementById('clickable-img');
+        const fullscreenImg = document.getElementById('img-fullscreen');
+        const closeBtn = document.querySelector('.close-btn');
+
+        // Quand on clique sur l'image, on affiche le pop-up
+        clickedImg.onclick = function() {
+            overlay.style.display = "flex";
+            fullscreenImg.src = this.src;
+        }
+
+        // Quand on clique sur la croix, on ferme le pop-up
+        closeBtn.onclick = function() {
+            overlay.style.display = "none";
+        }
+
+        // Quand on clique n'importe où en dehors de l'image, on ferme aussi
+        overlay.onclick = function(e) {
+            if (e.target !== fullscreenImg) {
+                overlay.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
