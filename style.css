@@ -134,3 +134,120 @@ input[type="checkbox"]:checked::after {
 input[type="checkbox"]:not(:checked):hover {
     border: 2px solid #FFFFFF;
 }
+
+/* --- Ajustements de mise en page --- */
+.intro-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 10px;
+    color: #555;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: #D3CCD8;
+    margin: 30px 0;
+}
+
+h3 {
+    font-size: 16px;
+    color: #140A50;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* --- Style Zone Vidéo --- */
+.video-zone {
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 20px;
+}
+
+.video-zone iframe {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #140A78;
+    border-radius: 6px;
+}
+
+/* --- Style Zone Image + Présentation --- */
+.image-presentation-zone {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap; /* S'adapte sur mobile */
+}
+
+.text-side {
+    flex: 1;
+    min-width: 250px;
+}
+
+.image-side {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+#clickable-img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 6px;
+    border: 2px solid #140A78;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#clickable-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(20, 10, 120, 0.2);
+}
+
+.img-hint {
+    font-size: 11px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* --- Système de Pop-up plein écran (Lightbox) --- */
+.overlay {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 10, 80, 0.9); /* Fond bleu foncé transparent */
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 6px;
+    border: 3px solid #DCFF1E; /* Bordure jaune fluo */
+    animation: zoomIn 0.3s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #F4F2F6;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #DCFF1E;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
